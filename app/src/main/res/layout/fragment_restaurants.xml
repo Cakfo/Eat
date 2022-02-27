@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.samir.eat.ui.main.MainViewModel" />
+            type="com.samir.eat.ui.restaurants.RestaurantsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,4 +1,4 @@
-package com.samir.eat.ui.main
+package com.samir.eat.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

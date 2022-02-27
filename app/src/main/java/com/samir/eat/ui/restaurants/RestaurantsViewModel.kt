@@ -1,10 +1,11 @@
-package com.samir.eat.ui.main
+package com.samir.eat.ui.restaurants
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.samir.eat.base.BaseViewModel
 import com.samir.eat.model.CommonRestaurantProperties
+import com.samir.eat.model.RestaurantResponse
 import com.samir.eat.repository.RestaurantsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -13,7 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class RestaurantsViewModel @Inject constructor(
     private val repository: RestaurantsRepository
 ) : BaseViewModel() {
 
@@ -27,17 +28,6 @@ class MainViewModel @Inject constructor(
     private val priceLevelFilter = MutableLiveData<Int?>()
     private val cuisineFilter = MutableLiveData<String?>()
     private val neighborhoodsFilter = MutableLiveData<String?>()
-
-    init {
-        launch {
-            val regions = repository.getRegions()
-            val region = regions.find { it.attributes?.name == "Dubai" }
-            val restaurantsResponse = repository.getRestaurants(regionId = region?.id)
-            _restaurants.value = restaurantsResponse.restaurants
-            currentPage = restaurantsResponse.meta.currentPage!!
-            totalPages = restaurantsResponse.meta.totalPages!!
-        }
-    }
 
     fun searchDebounced(searchText: String) {
         searchJob?.cancel()
@@ -86,5 +76,11 @@ class MainViewModel @Inject constructor(
                     neighborhoodId = neighborhoodsFilter.value
                 ).restaurants
         }
+    }
+
+    fun setRestaurants(restaurantsResponse: RestaurantResponse) {
+        _restaurants.value = restaurantsResponse.restaurants
+        currentPage = restaurantsResponse.meta.currentPage!!
+        totalPages = restaurantsResponse.meta.totalPages!!
     }
 }

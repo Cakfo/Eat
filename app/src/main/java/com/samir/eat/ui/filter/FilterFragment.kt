@@ -6,10 +6,10 @@ import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.samir.eat.R
 import com.samir.eat.base.BaseFragment
-import com.samir.eat.ui.cuisines.CuisinesFragment
 import com.samir.eat.databinding.FragmentFilterBinding
-import com.samir.eat.ui.main.MainFragment
+import com.samir.eat.ui.cuisines.CuisinesFragment
 import com.samir.eat.ui.neighborhoods.NeighborhoodsFragment
+import com.samir.eat.ui.restaurants.RestaurantsFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -93,7 +93,7 @@ class FilterFragment : BaseFragment<FilterViewModel, FragmentFilterBinding>() {
                 this@FilterFragment.viewModel.selectedNeighborhoodId.value
             )
         }
-        setFragmentResult(MainFragment.REQUEST_KEY, result)
+        setFragmentResult(RestaurantsFragment.REQUEST_KEY, result)
         findNavController().navigateUp()
     }
 }
