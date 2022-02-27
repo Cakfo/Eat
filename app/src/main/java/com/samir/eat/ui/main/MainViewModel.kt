@@ -1,11 +1,11 @@
-package com.samir.eat.main
+package com.samir.eat.ui.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.samir.eat.base.BaseViewModel
 import com.samir.eat.model.CommonRestaurantProperties
-import com.samir.eat.networking.repository.RestaurantsRepository
+import com.samir.eat.repository.RestaurantsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay

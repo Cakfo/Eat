@@ -1,4 +1,4 @@
-package com.samir.eat.cuisines
+package com.samir.eat.ui.common
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,7 +10,7 @@ import com.samir.eat.model.CommonRestaurantProperties
 import com.samir.eat.util.gone
 import com.samir.eat.util.visible
 
-class CommonPropertiesAdapter : RecyclerView.Adapter<CommonPropertiesAdapter.CuisineViewHolder>() {
+class SelectionAdapter : RecyclerView.Adapter<SelectionAdapter.CuisineViewHolder>() {
 
     private val cuisines = arrayListOf<CommonRestaurantProperties>()
     var selectedItem: CommonRestaurantProperties? = null

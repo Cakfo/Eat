@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.samir.eat.main.MainFragment"
+        android:name="com.samir.eat.ui.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main">
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/filterFragment"
-        android:name="com.samir.eat.filter.FilterFragment"
+        android:name="com.samir.eat.ui.filter.FilterFragment"
         android:label="FilterFragment">
         <action
             android:id="@+id/action_filterFragment_to_cuisinesFragment"
@@ -39,10 +39,10 @@
     </fragment>
     <fragment
         android:id="@+id/cuisinesFragment"
-        android:name="com.samir.eat.cuisines.CuisinesFragment"
+        android:name="com.samir.eat.ui.cuisines.CuisinesFragment"
         android:label="CuisinesFragment" />
     <fragment
         android:id="@+id/neighborhoodsFragment"
-        android:name="com.samir.eat.neighborhoods.NeighborhoodsFragment"
+        android:name="com.samir.eat.ui.neighborhoods.NeighborhoodsFragment"
         android:label="NeighborhoodsFragment" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.samir.eat.filter
+package com.samir.eat.ui.filter
 
 import android.os.Bundle
 import androidx.fragment.app.setFragmentResult
@@ -6,10 +6,10 @@ import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.samir.eat.R
 import com.samir.eat.base.BaseFragment
-import com.samir.eat.cuisines.CuisinesFragment
+import com.samir.eat.ui.cuisines.CuisinesFragment
 import com.samir.eat.databinding.FragmentFilterBinding
-import com.samir.eat.main.MainFragment
-import com.samir.eat.neighborhoods.NeighborhoodsFragment
+import com.samir.eat.ui.main.MainFragment
+import com.samir.eat.ui.neighborhoods.NeighborhoodsFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

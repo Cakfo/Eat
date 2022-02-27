@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.samir.eat.filter.FilterViewModel" />
+            type="com.samir.eat.ui.filter.FilterViewModel" />
         <import type="com.samir.eat.model.PriceLevel"/>
     </data>
 
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background_gray"
-        tools:context=".filter.FilterFragment">
+        tools:context=".ui.filter.FilterFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_header"

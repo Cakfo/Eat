@@ -1,11 +1,11 @@
-package com.samir.eat.neighborhoods
+package com.samir.eat.ui.neighborhoods
 
 import android.os.Bundle
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import com.samir.eat.R
 import com.samir.eat.base.BaseFragment
-import com.samir.eat.cuisines.CommonPropertiesAdapter
+import com.samir.eat.ui.common.SelectionAdapter
 import com.samir.eat.databinding.FragmentCommonBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,7 +18,7 @@ class NeighborhoodsFragment : BaseFragment<NeighborhoodsViewModel, FragmentCommo
         const val NEIGHBORHOODS_NAME = "NEIGHBORHOODS_NAME"
     }
 
-    private val adapter = CommonPropertiesAdapter()
+    private val adapter = SelectionAdapter()
 
     override fun getViewDataBinding() = FragmentCommonBinding.inflate(layoutInflater)
     override val viewModelType = NeighborhoodsViewModel::class.java

@@ -1,10 +1,11 @@
-package com.samir.eat.cuisines
+package com.samir.eat.ui.cuisines
 
 import android.os.Bundle
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import com.samir.eat.base.BaseFragment
 import com.samir.eat.databinding.FragmentCommonBinding
+import com.samir.eat.ui.common.SelectionAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,7 +17,7 @@ class CuisinesFragment : BaseFragment<CuisinesViewModel, FragmentCommonBinding>(
         const val CUISINES_NAME = "CUISINE_NAME"
     }
 
-    private val adapter = CommonPropertiesAdapter()
+    private val adapter = SelectionAdapter()
 
     override fun getViewDataBinding() = FragmentCommonBinding.inflate(layoutInflater)
     override val viewModelType = CuisinesViewModel::class.java

@@ -1,7 +1,7 @@
 package com.samir.eat.networking.data
 
-import com.samir.eat.networking.repository.RestaurantsRepository
-import com.samir.eat.networking.repository.RestaurantsRepositoryImpl
+import com.samir.eat.repository.RestaurantsRepository
+import com.samir.eat.repository.RestaurantsRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -11,7 +11,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class RestaurantsDataModule {
+abstract class RestaurantsModule {
 
     companion object {
         @Singleton
@@ -22,5 +22,5 @@ abstract class RestaurantsDataModule {
 
     @Binds
     @Singleton
-    abstract fun provideSampleRepository(restaurantsRepositoryImpl: RestaurantsRepositoryImpl): RestaurantsRepository
+    abstract fun provideRestaurantRepository(restaurantsRepositoryImpl: RestaurantsRepositoryImpl): RestaurantsRepository
 }

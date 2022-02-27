@@ -7,12 +7,13 @@
 
         <variable
             name="viewModel"
-            type="com.samir.eat.main.MainViewModel" />
+            type="com.samir.eat.ui.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/background_gray"
         android:fitsSystemWindows="true">
 
         <androidx.appcompat.widget.Toolbar
@@ -33,12 +34,14 @@
                 tools:ignore="ContentDescription" />
 
             <EditText
+                android:paddingStart="@dimen/margin_small_12"
+                android:drawablePadding="@dimen/margin_small_8"
                 android:id="@+id/edit_search"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/search_bar_height"
                 android:layout_marginEnd="@dimen/margin_normal_16"
                 android:background="@drawable/drawable_button_rounded"
-                android:drawableStart="@android:drawable/ic_menu_search"
+                android:drawableStart="@drawable/ic_baseline_search_24"
                 android:hint="@string/search_restaurants_hint"
                 android:inputType="text"
                 android:textSize="@dimen/text_size_14"

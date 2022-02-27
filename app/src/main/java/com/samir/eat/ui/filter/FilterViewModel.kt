@@ -1,10 +1,9 @@
-package com.samir.eat.filter
+package com.samir.eat.ui.filter
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.samir.eat.base.BaseViewModel
 import com.samir.eat.model.PriceLevel
-import com.samir.eat.util.asMutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

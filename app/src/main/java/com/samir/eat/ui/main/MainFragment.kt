@@ -1,4 +1,4 @@
-package com.samir.eat.main
+package com.samir.eat.ui.main
 
 import android.os.Handler
 import android.os.Looper
@@ -7,8 +7,8 @@ import androidx.navigation.fragment.findNavController
 import com.samir.eat.R
 import com.samir.eat.base.BaseFragment
 import com.samir.eat.databinding.FragmentMainBinding
-import com.samir.eat.filter.FilterFragment
-import com.samir.eat.main.adapter.RestaurantsAdapter
+import com.samir.eat.ui.filter.FilterFragment
+import com.samir.eat.ui.main.adapter.RestaurantsAdapter
 import com.samir.eat.util.RestaurantTextWatcher
 import com.samir.eat.util.gone
 import com.samir.eat.util.visible

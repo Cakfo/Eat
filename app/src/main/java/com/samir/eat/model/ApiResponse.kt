@@ -78,13 +78,10 @@ data class Links(
 enum class PropertyType(val value: String) {
     @SerializedName("restaurant")
     RESTAURANT("restaurant"),
-
     @SerializedName("cuisine")
     CUISINE("cuisine"),
-
     @SerializedName("region")
     REGION("region"),
-
 }
 
 enum class PriceLevel(val value: Int) {

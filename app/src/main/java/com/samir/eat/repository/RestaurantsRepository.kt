@@ -1,4 +1,4 @@
-package com.samir.eat.networking.repository
+package com.samir.eat.repository
 
 import com.samir.eat.model.CommonRestaurantProperties
 import com.samir.eat.model.CuisinesResponse

@@ -1,39 +1,40 @@
-package com.samir.eat.cuisines
+package com.samir.eat.ui.neighborhoods
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.samir.eat.base.BaseViewModel
 import com.samir.eat.model.CommonRestaurantProperties
-import com.samir.eat.networking.repository.RestaurantsRepository
+import com.samir.eat.repository.RestaurantsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class CuisinesViewModel @Inject constructor(
+class NeighborhoodsViewModel @Inject constructor(
     private val repository: RestaurantsRepository
 ) : BaseViewModel() {
 
-    private val _cuisines = MutableLiveData<ArrayList<CommonRestaurantProperties>>()
-    val cuisines: LiveData<ArrayList<CommonRestaurantProperties>> = _cuisines
+    private val _neighborhoods = MutableLiveData<ArrayList<CommonRestaurantProperties>>()
+    val neighborhoods: LiveData<ArrayList<CommonRestaurantProperties>> = _neighborhoods
 
     init {
         launch {
-            val response = repository.getCuisines()
-            _cuisines.value = response.cuisines
+            val response = repository.getNeighborhoods()
+            _neighborhoods.value = response.neighborhoods
             currentPage = response.meta.currentPage!!
             totalPages = response.meta.totalPages!!
         }
     }
 
-    fun loadPaginatedCuisines() {
+    fun loadPaginatedNeighborhoods() {
         if (currentPage == totalPages) {
             return
         }
         launch {
-            val response = repository.getCuisines(page = currentPage + 1)
+            val response = repository.getNeighborhoods(page = currentPage + 1)
             currentPage = response.meta.currentPage!!
             totalPages = response.meta.totalPages!!
-            _cuisines.value = response.cuisines
+            _neighborhoods.value = response.neighborhoods
         }
     }
 }
+

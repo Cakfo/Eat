@@ -1,4 +1,4 @@
-package com.samir.eat.main.adapter
+package com.samir.eat.ui.main.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
