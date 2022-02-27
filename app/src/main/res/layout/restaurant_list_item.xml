@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_root"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/restaurant_list_item_height">
+
+        <ImageView
+            android:id="@+id/image_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_normal_16"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_20"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/text_address"
+            app:layout_constraintStart_toStartOf="@id/button_book_now" />
+
+        <TextView
+            android:id="@+id/text_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_normal_16"
+            android:textAllCaps="true"
+            android:textColor="@color/white_70"
+            app:layout_constraintBottom_toTopOf="@id/button_book_now"
+            app:layout_constraintStart_toStartOf="@id/button_book_now" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_book_now"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_height_small"
+            android:layout_marginStart="@dimen/margin_normal_16"
+            android:layout_marginBottom="@dimen/margin_normal_16"
+            android:backgroundTint="@color/orange"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/book_now_label"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/frame_cuisine"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_height_small"
+            android:layout_marginStart="@dimen/margin_normal_16"
+            android:background="@drawable/drawable_border"
+            android:paddingStart="@dimen/margin_normal_16"
+            android:paddingEnd="@dimen/margin_normal_16"
+            app:layout_constraintBottom_toBottomOf="@id/button_book_now"
+            app:layout_constraintStart_toEndOf="@id/button_book_now">
+
+            <TextView
+                android:id="@+id/text_cuisine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/white_70"
+                tools:text="Italian" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_price"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_height_small"
+            android:layout_marginStart="@dimen/margin_normal_16"
+            android:background="@drawable/drawable_border"
+            android:paddingStart="@dimen/margin_normal_16"
+            android:paddingEnd="@dimen/margin_normal_16"
+            app:layout_constraintBottom_toBottomOf="@id/frame_cuisine"
+            app:layout_constraintStart_toEndOf="@id/frame_cuisine">
+
+            <TextView
+                android:id="@+id/text_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/white_70"
+                tools:text="$$$" />
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

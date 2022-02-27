@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.samir.eat.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_filterFragment"
+            app:destination="@id/filterFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/filterFragment"
+        android:name="com.samir.eat.filter.FilterFragment"
+        android:label="FilterFragment">
+        <action
+            android:id="@+id/action_filterFragment_to_cuisinesFragment"
+            app:destination="@id/cuisinesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_filterFragment_to_neighborhoodsFragment"
+            app:destination="@id/neighborhoodsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/cuisinesFragment"
+        android:name="com.samir.eat.cuisines.CuisinesFragment"
+        android:label="CuisinesFragment" />
+    <fragment
+        android:id="@+id/neighborhoodsFragment"
+        android:name="com.samir.eat.neighborhoods.NeighborhoodsFragment"
+        android:label="NeighborhoodsFragment" />
+</navigation>

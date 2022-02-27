@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.samir.eat.filter.FilterViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_gray"
+        tools:context=".filter.FilterFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal_16"
+            android:paddingStart="@dimen/margin_normal_16"
+            android:paddingEnd="@dimen/margin_normal_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/text_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel_label"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_apply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/apply_label"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_filters"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/filters_label"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/text_size_16"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/separator"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/separator_height"
+            android:layout_marginTop="@dimen/margin_normal_16"
+            android:background="@color/light_gray"
+            app:layout_constraintTop_toBottomOf="@id/layout_header" />
+
+        <TextView
+            android:id="@+id/text_select_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal_16"
+            android:layout_marginTop="@dimen/margin_normal_16"
+            android:text="@string/select_price_label"
+            android:textAllCaps="true"
+            android:textColor="@color/gray_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/separator" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/layout_prices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal_16"
+            android:layout_marginTop="@dimen/margin_normal_16"
+            android:layout_marginEnd="@dimen/margin_normal_16"
+            android:divider="@drawable/divider"
+            android:orientation="horizontal"
+            android:showDividers="middle"
+            app:checkedButton="@id/button_all"
+            app:layout_constraintTop_toBottomOf="@id/text_select_price"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_all"
+                style="@style/ToggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/all_label"
+                android:textAllCaps="false" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_price_low"
+                style="@style/ToggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:onClick="@{()-> viewModel.setPriceLevel(1)}"
+                android:text="@string/price_low_label" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_price_medium"
+                style="@style/ToggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:onClick="@{(v)-> viewModel.setPriceLevel(2)}"
+                android:text="@string/price_medium_label" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_price_high"
+                style="@style/ToggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:onClick="@{(v)-> viewModel.setPriceLevel(3)}"
+                android:text="@string/price_high_label" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <TextView
+            android:id="@+id/text_filter_by"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal_16"
+            android:layout_marginTop="@dimen/margin_normal_16"
+            android:text="@string/filter_by_label"
+            android:textAllCaps="true"
+            android:textColor="@color/gray_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_prices" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_cuisine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/filter_item_height"
+            android:layout_marginTop="@dimen/margin_small_10"
+            android:background="@drawable/drawable_top_bottom_stroke"
+            app:layout_constraintTop_toBottomOf="@id/text_filter_by">
+
+            <ImageView
+                android:id="@+id/image_cuisine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_normal_16"
+                android:src="@drawable/ic_food_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/gray_text"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/text_cuisine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_normal_16"
+                android:text="@string/cuisine_label"
+                android:textColor="@color/gray_text"
+                android:textSize="@dimen/text_size_16"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/image_cuisine"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_cuisine_filters"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small_4"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/all_filters_label"
+                android:textColor="@color/green"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/image_chevron"
+                app:layout_constraintStart_toEndOf="@id/text_cuisine"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/image_chevron"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_normal_16"
+                android:src="@drawable/ic_arrow_forward_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/gray_text"
+                tools:ignore="ContentDescription" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_neighborhood"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/filter_item_height"
+            android:background="@drawable/drawable_top_bottom_stroke"
+            app:layout_constraintTop_toBottomOf="@id/layout_cuisine">
+
+            <ImageView
+                android:id="@+id/image_neighborhood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_normal_16"
+                android:src="@drawable/ic_baseline_location_on_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/gray_text" />
+
+            <TextView
+                android:id="@+id/text_neighborhood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_normal_16"
+                android:text="@string/neighborhood_label"
+                android:textColor="@color/gray_text"
+                android:textSize="@dimen/text_size_16"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/image_neighborhood"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_neighborhood_filters"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small_4"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/all_filters_label"
+                android:textColor="@color/green"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/image_chevron_neighborhood"
+                app:layout_constraintStart_toEndOf="@id/text_neighborhood"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/image_chevron_neighborhood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_normal_16"
+                android:src="@drawable/ic_arrow_forward_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/gray_text"
+                tools:ignore="ContentDescription" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_apply_filters"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/list_item_height"
+            android:backgroundTint="@color/green"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/apply_filters_label"
+            android:textColor="@color/white"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

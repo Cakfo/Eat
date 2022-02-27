@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Eat</string>
+    <string name="book_now_label">book now</string>
+    <string name="map_view_label">map view</string>
+    <string name="filter_label">filter</string>
+    <string name="cuisines_label">Cuisines</string>
+    <string name="apply_filters_label">apply filters</string>
+    <string name="cancel_label">Cancel</string>
+    <string name="apply_label">apply</string>
+    <string name="filters_label">Filters</string>
+    <string name="select_price_label">Select price</string>
+    <string name="all_label">All</string>
+    <string name="price_low_label">$</string>
+    <string name="price_medium_label">$$</string>
+    <string name="price_high_label">$$$</string>
+    <string name="filter_by_label">filter by</string>
+    <string name="cuisine_label">Cuisine</string>
+    <string name="all_filters_label">(all)</string>
+    <string name="neighborhood_label">Neighborhood</string>
+    <string name="neighborhoods_label">Neighborhoods</string>
+    <string name="search_restaurants_hint">Search for restaurants or location</string>
+    <string name="no_restaurants_label">No restaurants matching your criteira</string>
+    <string name="loading_label">Please wait! This may take a moment.</string>
+</resources>
