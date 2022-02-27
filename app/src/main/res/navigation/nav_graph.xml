@@ -48,9 +48,15 @@
     <fragment
         android:id="@+id/resourcesFragment"
         android:name="com.samir.eat.ui.splash.ResourcesFragment"
-        android:label="ResourcesFragment" >
+        android:label="ResourcesFragment">
         <action
             android:id="@+id/action_resourcesFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/resourcesFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
