@@ -8,7 +8,8 @@ import com.samir.eat.R
 import com.samir.eat.base.BaseFragment
 import com.samir.eat.ui.cuisines.CuisinesFragment
 import com.samir.eat.databinding.FragmentFilterBinding
-import com.samir.eat.ui.main.MainFragment
+import com.samir.eat.networking.data.ResourceManager
+import com.samir.eat.ui.main.RestaurantsFragment
 import com.samir.eat.ui.neighborhoods.NeighborhoodsFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,31 +32,25 @@ class FilterFragment : BaseFragment<FilterViewModel, FragmentFilterBinding>() {
         setupObservers()
 
         setFragmentResultListener(NeighborhoodsFragment.REQUEST_KEY) { _, bundle ->
-            bundle.getString(NeighborhoodsFragment.NEIGHBORHOODS_ID)?.let {
-                viewModel.setNeighborhoodId(it)
-            }
-            bundle.getString(NeighborhoodsFragment.NEIGHBORHOODS_NAME)?.let {
-                viewModel.setNeighborhoodName(it)
-            }
+            viewModel.setNeighborhoodId(bundle.getString(NeighborhoodsFragment.NEIGHBORHOODS_ID))
+            viewModel.setNeighborhoodName(bundle.getString(NeighborhoodsFragment.NEIGHBORHOODS_NAME))
         }
 
         setFragmentResultListener(CuisinesFragment.REQUEST_KEY) { _, bundle ->
-            bundle.getString(CuisinesFragment.CUISINES_ID)?.let {
-                viewModel.setCuisineId(it)
-            }
-            bundle.getString(CuisinesFragment.CUISINES_NAME)?.let {
-                viewModel.setCuisineName(it)
-            }
+            viewModel.setCuisineId(bundle.getString(CuisinesFragment.CUISINES_ID))
+            viewModel.setCuisineName(bundle.getString(CuisinesFragment.CUISINES_NAME))
         }
     }
 
     private fun setupObservers() {
         viewModel.selectedCuisineName.observe(this) {
-            binding.textCuisineFilters.text = String.format("(%s)", it)
+            binding.textCuisineFilters.text =
+                String.format("(%s)", it ?: getString(R.string.all_label).lowercase())
         }
 
         viewModel.selectedNeighborhoodName.observe(this) {
-            binding.textNeighborhoodFilters.text = String.format("(%s)", it)
+            binding.textNeighborhoodFilters.text =
+                String.format("(%s)", it ?: getString(R.string.all_label).lowercase())
         }
     }
 
@@ -79,6 +74,13 @@ class FilterFragment : BaseFragment<FilterViewModel, FragmentFilterBinding>() {
         textCancel.setOnClickListener {
             findNavController().navigateUp()
         }
+
+        ResourceManager.neighborhoods.find { it.selected }?.let {
+            textNeighborhoodFilters.text = String.format("(%s)", it.attributes?.name)
+        }
+        ResourceManager.cuisines.find { it.selected }?.let {
+            textCuisineFilters.text = String.format("(%s)", it.attributes?.name)
+        }
     }
 
     private fun applyFilters() {
@@ -93,7 +95,7 @@ class FilterFragment : BaseFragment<FilterViewModel, FragmentFilterBinding>() {
                 this@FilterFragment.viewModel.selectedNeighborhoodId.value
             )
         }
-        setFragmentResult(MainFragment.REQUEST_KEY, result)
+        setFragmentResult(RestaurantsFragment.REQUEST_KEY, result)
         findNavController().navigateUp()
     }
 }

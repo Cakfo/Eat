@@ -13,35 +13,35 @@ class FilterViewModel @Inject constructor() : BaseViewModel() {
     private val _priceLevel = MutableLiveData<PriceLevel>()
     val priceLevel: LiveData<PriceLevel> = _priceLevel
 
-    private val _selectedNeighborhoodId = MutableLiveData<String>()
-    val selectedNeighborhoodId: LiveData<String> = _selectedNeighborhoodId
+    private val _selectedNeighborhoodId = MutableLiveData<String?>()
+    val selectedNeighborhoodId: LiveData<String?> = _selectedNeighborhoodId
 
-    private val _selectedCuisineId = MutableLiveData<String>()
-    val selectedCuisineId: LiveData<String> = _selectedCuisineId
+    private val _selectedCuisineId = MutableLiveData<String?>()
+    val selectedCuisineId: LiveData<String?> = _selectedCuisineId
 
-    private val _selectedNeighborhoodName = MutableLiveData<String>()
-    val selectedNeighborhoodName: LiveData<String> = _selectedNeighborhoodName
+    private val _selectedNeighborhoodName = MutableLiveData<String?>()
+    val selectedNeighborhoodName: LiveData<String?> = _selectedNeighborhoodName
 
-    private val _selectedCuisineName = MutableLiveData<String>()
-    val selectedCuisineName: LiveData<String> = _selectedCuisineName
+    private val _selectedCuisineName = MutableLiveData<String?>()
+    val selectedCuisineName: LiveData<String?> = _selectedCuisineName
 
     fun setPriceLevel(priceLevel: PriceLevel) {
         _priceLevel.value = priceLevel
     }
 
-    fun setNeighborhoodId(id: String) {
+    fun setNeighborhoodId(id: String?) {
         _selectedNeighborhoodId.value = id
     }
 
-    fun setCuisineId(id: String) {
+    fun setCuisineId(id: String?) {
         _selectedCuisineId.value = id
     }
 
-    fun setNeighborhoodName(name: String) {
+    fun setNeighborhoodName(name: String?) {
         _selectedNeighborhoodName.value = name
     }
 
-    fun setCuisineName(name: String) {
+    fun setCuisineName(name: String?) {
         _selectedCuisineName.value = name
     }
 }

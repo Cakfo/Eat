@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.samir.eat.base.BaseViewModel
 import com.samir.eat.model.CommonRestaurantProperties
 import com.samir.eat.repository.RestaurantsRepository
+import com.samir.eat.networking.data.ResourceManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -13,7 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class RestaurantsViewModel @Inject constructor(
     private val repository: RestaurantsRepository
 ) : BaseViewModel() {
 
@@ -30,8 +31,8 @@ class MainViewModel @Inject constructor(
 
     init {
         launch {
-            val regions = repository.getRegions()
-            val region = regions.find { it.attributes?.name == "Dubai" }
+//            val regions = repository.getRegions()
+            val region = ResourceManager.regions.find { it.attributes?.name == "Dubai" }
             val restaurantsResponse = repository.getRestaurants(regionId = region?.id)
             _restaurants.value = restaurantsResponse.restaurants
             currentPage = restaurantsResponse.meta.currentPage!!

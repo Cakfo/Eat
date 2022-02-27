@@ -23,10 +23,6 @@ class CuisinesFragment : BaseFragment<CuisinesViewModel, FragmentCommonBinding>(
     override val viewModelType = CuisinesViewModel::class.java
 
     override fun viewCreated() {
-        setupRecyclerViewScrollListener(binding.recyclerCommon) {
-            viewModel.loadPaginatedCuisines()
-        }
-
         setupUi()
         setupObservers()
     }

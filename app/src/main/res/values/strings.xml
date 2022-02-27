@@ -21,4 +21,6 @@
     <string name="search_restaurants_hint">Search for restaurants or location</string>
     <string name="no_restaurants_label">No restaurants matching your criteira</string>
     <string name="loading_label">Please wait! This may take a moment.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

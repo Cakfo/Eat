@@ -11,12 +11,12 @@ class RestaurantsRepositoryImpl @Inject constructor(
     private val restaurantsApi: RestaurantsApi
 ) : RestaurantsRepository {
 
-    override suspend fun getCuisines(page: Int): CuisinesResponse {
-        return restaurantsApi.getCuisines(page)
+    override suspend fun getCuisines(page: Int, limit: Int): CuisinesResponse {
+        return restaurantsApi.getCuisines(page, limit)
     }
 
-    override suspend fun getNeighborhoods(page: Int): NeighborhoodsResponse {
-        return restaurantsApi.getNeighborhoods(page)
+    override suspend fun getNeighborhoods(page: Int, limit: Int): NeighborhoodsResponse {
+        return restaurantsApi.getNeighborhoods(page, limit)
     }
 
     override suspend fun getRegions(): ArrayList<CommonRestaurantProperties> {

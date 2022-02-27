@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/resourcesFragment">
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.samir.eat.ui.main.MainFragment"
+        android:name="com.samir.eat.ui.main.RestaurantsFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main">
+        tools:layout="@layout/fragment_restaurants">
         <action
             android:id="@+id/action_mainFragment_to_filterFragment"
             app:destination="@id/filterFragment"
@@ -45,4 +45,12 @@
         android:id="@+id/neighborhoodsFragment"
         android:name="com.samir.eat.ui.neighborhoods.NeighborhoodsFragment"
         android:label="NeighborhoodsFragment" />
+    <fragment
+        android:id="@+id/resourcesFragment"
+        android:name="com.samir.eat.ui.splash.ResourcesFragment"
+        android:label="ResourcesFragment" >
+        <action
+            android:id="@+id/action_resourcesFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>

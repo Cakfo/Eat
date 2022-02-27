@@ -5,8 +5,8 @@ import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import com.samir.eat.R
 import com.samir.eat.base.BaseFragment
-import com.samir.eat.ui.common.SelectionAdapter
 import com.samir.eat.databinding.FragmentCommonBinding
+import com.samir.eat.ui.common.SelectionAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,10 +24,6 @@ class NeighborhoodsFragment : BaseFragment<NeighborhoodsViewModel, FragmentCommo
     override val viewModelType = NeighborhoodsViewModel::class.java
 
     override fun viewCreated() {
-        setupRecyclerViewScrollListener(binding.recyclerCommon) {
-            viewModel.loadPaginatedNeighborhoods()
-        }
-
         setupUi()
         setupObservers()
     }

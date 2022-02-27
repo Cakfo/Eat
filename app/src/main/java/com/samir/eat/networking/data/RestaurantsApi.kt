@@ -19,10 +19,16 @@ interface RestaurantsApi {
     ): RestaurantResponse
 
     @GET("/consumer/v2/cuisines")
-    suspend fun getCuisines(@Query("page") page: Int = 1): CuisinesResponse
+    suspend fun getCuisines(
+        @Query("page") page: Int = 1,
+        @Query("limit") limit: Int = 30
+    ): CuisinesResponse
 
     @GET("/consumer/v2/neighborhoods")
-    suspend fun getNeighborhoods(@Query("page") page: Int = 1): NeighborhoodsResponse
+    suspend fun getNeighborhoods(
+        @Query("page") page: Int = 1,
+        @Query("limit") limit: Int = 30
+    ): NeighborhoodsResponse
 
     @GET("/consumer/v2/regions")
     suspend fun getRegions(): RegionsResponse

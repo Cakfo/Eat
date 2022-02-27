@@ -6,8 +6,8 @@ import com.samir.eat.model.NeighborhoodsResponse
 import com.samir.eat.model.RestaurantResponse
 
 interface RestaurantsRepository {
-    suspend fun getCuisines(page: Int = 1): CuisinesResponse
-    suspend fun getNeighborhoods(page: Int = 1): NeighborhoodsResponse
+    suspend fun getCuisines(page: Int = 1, limit: Int = 30): CuisinesResponse
+    suspend fun getNeighborhoods(page: Int = 1, limit: Int = 30): NeighborhoodsResponse
     suspend fun getRegions(): ArrayList<CommonRestaurantProperties>
     suspend fun getRestaurants(
         page: Int = 1,

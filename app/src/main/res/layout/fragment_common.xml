@@ -59,7 +59,11 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_common"
             android:layout_width="match_parent"
+            android:background="@color/background_gray"
             android:layout_height="0dp"
+            android:fadeScrollbars="true"
+            android:scrollbars="vertical"
+            android:scrollbarThumbVertical="@color/gray_text"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@id/button_apply_filters"
             app:layout_constraintEnd_toEndOf="parent"

@@ -6,7 +6,7 @@ import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.samir.eat.R
 import com.samir.eat.base.BaseFragment
-import com.samir.eat.databinding.FragmentMainBinding
+import com.samir.eat.databinding.FragmentRestaurantsBinding
 import com.samir.eat.ui.filter.FilterFragment
 import com.samir.eat.ui.main.adapter.RestaurantsAdapter
 import com.samir.eat.util.RestaurantTextWatcher
@@ -15,7 +15,7 @@ import com.samir.eat.util.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>() {
+class RestaurantsFragment : BaseFragment<RestaurantsViewModel, FragmentRestaurantsBinding>() {
 
     private val editTextDelay = 200L
 
@@ -23,9 +23,9 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>() {
         const val REQUEST_KEY = "REQUEST_KEY"
     }
 
-    override val viewModelType: Class<MainViewModel> = MainViewModel::class.java
+    override val viewModelType: Class<RestaurantsViewModel> = RestaurantsViewModel::class.java
 
-    override fun getViewDataBinding() = FragmentMainBinding.inflate(layoutInflater)
+    override fun getViewDataBinding() = FragmentRestaurantsBinding.inflate(layoutInflater)
 
     override fun viewCreated() {
         setupRecyclerViewScrollListener(binding.recyclerRestaurants) {
@@ -77,7 +77,7 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>() {
         // Used to prevent edit text emitting empty string when screen loads
         Handler(Looper.getMainLooper()).postDelayed({
             binding.editSearch.addTextChangedListener(RestaurantTextWatcher {
-                this@MainFragment.viewModel.searchDebounced(it)
+                this@RestaurantsFragment.viewModel.searchDebounced(it)
             })
         }, editTextDelay)
 

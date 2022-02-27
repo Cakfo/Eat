@@ -43,10 +43,11 @@ class SelectionAdapter : RecyclerView.Adapter<SelectionAdapter.CuisineViewHolder
             binding.textCuisine.text = listItem.attributes?.name
             if (listItem.selected) {
                 binding.run {
+                    previousItem = adapterPosition
+                    selectedItem = listItem
                     textCuisine.setTextColor(ContextCompat.getColor(context, R.color.green))
                     imageSelected.visible()
                 }
-
             } else {
                 binding.run {
                     textCuisine.setTextColor(ContextCompat.getColor(context, R.color.dark_gray))
@@ -70,7 +71,6 @@ class SelectionAdapter : RecyclerView.Adapter<SelectionAdapter.CuisineViewHolder
             } else {
                 listItem.selected = true
                 cuisines[previousItem].selected = false
-                selectedItem = listItem
             }
             notifyItemChanged(adapterPosition)
             notifyItemChanged(previousItem)
