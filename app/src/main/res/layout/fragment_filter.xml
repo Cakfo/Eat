@@ -7,6 +7,7 @@
         <variable
             name="viewModel"
             type="com.samir.eat.filter.FilterViewModel" />
+        <import type="com.samir.eat.model.PriceLevel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -104,6 +105,7 @@
                 android:layout_weight="0.25"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
+                android:onClick="@{()-> viewModel.setPriceLevel(PriceLevel.PRICE_ALL)}"
                 android:text="@string/all_label"
                 android:textAllCaps="false" />
 
@@ -115,7 +117,7 @@
                 android:layout_weight="0.25"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:onClick="@{()-> viewModel.setPriceLevel(1)}"
+                android:onClick="@{()-> viewModel.setPriceLevel(PriceLevel.PRICE_LOW)}"
                 android:text="@string/price_low_label" />
 
             <com.google.android.material.button.MaterialButton
@@ -126,7 +128,7 @@
                 android:layout_weight="0.25"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:onClick="@{(v)-> viewModel.setPriceLevel(2)}"
+                android:onClick="@{(v)-> viewModel.setPriceLevel(PriceLevel.PRICE_MEDIUM)}"
                 android:text="@string/price_medium_label" />
 
             <com.google.android.material.button.MaterialButton
@@ -137,7 +139,7 @@
                 android:layout_weight="0.25"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:onClick="@{(v)-> viewModel.setPriceLevel(3)}"
+                android:onClick="@{(v)-> viewModel.setPriceLevel(PriceLevel.PRICE_HIGH)}"
                 android:text="@string/price_high_label" />
         </com.google.android.material.button.MaterialButtonToggleGroup>
 

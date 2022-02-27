@@ -80,7 +80,7 @@ class FilterFragment : BaseFragment<FilterViewModel, FragmentFilterBinding>() {
 
     private fun applyFilters() {
         val result = Bundle().apply {
-            putInt(PRICE_LEVEL, this@FilterFragment.viewModel.priceLevel.value!!)
+            putInt(PRICE_LEVEL, this@FilterFragment.viewModel.priceLevel.value?.value ?: 0)
             putString(
                 CUISINE_ID,
                 this@FilterFragment.viewModel.selectedCuisineId.value

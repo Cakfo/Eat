@@ -37,7 +37,7 @@ class RestaurantsAdapter(
                 .into(binding.imageBackground)
             binding.run {
                 textName.text = listItem.attributes?.name
-                textPrice.text = "$".repeat(listItem.attributes?.priceLevel ?: 0)
+                textPrice.text = "$".repeat(listItem.attributes?.priceLevel?.value ?: 0)
                 textCuisine.text = listItem.attributes?.cuisine
                 textAddress.text = listItem.attributes?.address
             }

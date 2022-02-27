@@ -43,7 +43,7 @@ data class Attributes(
     @SerializedName("image_url")
     val imageUrl: String? = null,
     @SerializedName("price_level")
-    val priceLevel: Int? = null,
+    val priceLevel: PriceLevel? = null,
     @SerializedName("menu_url")
     val menuUrl: String? = null,
     val difficult: Boolean? = null,
@@ -85,4 +85,15 @@ enum class PropertyType(val value: String) {
     @SerializedName("region")
     REGION("region"),
 
+}
+
+enum class PriceLevel(val value: Int) {
+    @SerializedName("1")
+    PRICE_LOW(1),
+    @SerializedName("2")
+    PRICE_MEDIUM(2),
+    @SerializedName("3")
+    PRICE_HIGH(3),
+    @SerializedName("0")
+    PRICE_ALL(0)
 }
