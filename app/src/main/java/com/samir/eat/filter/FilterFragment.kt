@@ -28,14 +28,7 @@ class FilterFragment : BaseFragment<FilterViewModel, FragmentFilterBinding>() {
     override fun viewCreated() {
 
         setupUi()
-
-        viewModel.selectedCuisineName.observe(this) {
-            binding.textCuisineFilters.text = String.format("(%s)", it)
-        }
-
-        viewModel.selectedNeighborhoodName.observe(this) {
-            binding.textNeighborhoodFilters.text = String.format("(%s)", it)
-        }
+        setupObservers()
 
         setFragmentResultListener(NeighborhoodsFragment.REQUEST_KEY) { _, bundle ->
             bundle.getString(NeighborhoodsFragment.NEIGHBORHOODS_ID)?.let {
@@ -53,6 +46,16 @@ class FilterFragment : BaseFragment<FilterViewModel, FragmentFilterBinding>() {
             bundle.getString(CuisinesFragment.CUISINES_NAME)?.let {
                 viewModel.setCuisineName(it)
             }
+        }
+    }
+
+    private fun setupObservers() {
+        viewModel.selectedCuisineName.observe(this) {
+            binding.textCuisineFilters.text = String.format("(%s)", it)
+        }
+
+        viewModel.selectedNeighborhoodName.observe(this) {
+            binding.textNeighborhoodFilters.text = String.format("(%s)", it)
         }
     }
 

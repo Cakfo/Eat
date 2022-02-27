@@ -27,7 +27,10 @@ class CuisinesFragment : BaseFragment<CuisinesViewModel, FragmentCommonBinding>(
         }
 
         setupUi()
+        setupObservers()
+    }
 
+    private fun setupObservers() {
         viewModel.cuisines.observe(viewLifecycleOwner) {
             adapter.updateData(it)
         }

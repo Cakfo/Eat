@@ -33,20 +33,7 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>() {
         }
 
         setupUi()
-        viewModel.restaurants.observe(viewLifecycleOwner) {
-            if (it.isEmpty()) {
-                binding.run {
-                    recyclerRestaurants.gone()
-                    layoutNoRestaurants.visible()
-                }
-            } else {
-                binding.run {
-                    recyclerRestaurants.adapter = RestaurantsAdapter(it)
-                    recyclerRestaurants.visible()
-                    layoutNoRestaurants.gone()
-                }
-            }
-        }
+        setupObservers()
 
         setFragmentResultListener(REQUEST_KEY) { _, bundle ->
             val priceLevel = bundle.getInt(FilterFragment.PRICE_LEVEL)
@@ -65,6 +52,23 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>() {
                 setCuisineFilters(cuisinesId)
                 setNeighborhoodFilters(neighborhoodsId)
                 loadFilteredRestaurants()
+            }
+        }
+    }
+
+    private fun setupObservers() {
+        viewModel.restaurants.observe(viewLifecycleOwner) {
+            if (it.isEmpty()) {
+                binding.run {
+                    recyclerRestaurants.gone()
+                    layoutNoRestaurants.visible()
+                }
+            } else {
+                binding.run {
+                    recyclerRestaurants.adapter = RestaurantsAdapter(it)
+                    recyclerRestaurants.visible()
+                    layoutNoRestaurants.gone()
+                }
             }
         }
     }
