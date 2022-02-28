@@ -77,9 +77,11 @@ class FilterFragment : BaseFragment<FilterViewModel, FragmentFilterBinding>() {
 
         ResourceManager.neighborhoods.find { it.selected }?.let {
             textNeighborhoodFilters.text = String.format("(%s)", it.attributes?.name)
+            this@FilterFragment.viewModel.setNeighborhoodId(it.id)
         }
         ResourceManager.cuisines.find { it.selected }?.let {
             textCuisineFilters.text = String.format("(%s)", it.attributes?.name)
+            this@FilterFragment.viewModel.setCuisineId(it.id)
         }
     }
 
