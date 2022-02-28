@@ -34,6 +34,7 @@
                 tools:ignore="ContentDescription" />
 
             <EditText
+                android:textColor="@color/white"
                 android:paddingStart="@dimen/margin_small_12"
                 android:drawablePadding="@dimen/margin_small_8"
                 android:id="@+id/edit_search"

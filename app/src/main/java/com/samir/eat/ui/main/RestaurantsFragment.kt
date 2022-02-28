@@ -28,6 +28,8 @@ class RestaurantsFragment : BaseFragment<RestaurantsViewModel, FragmentRestauran
     override fun getViewDataBinding() = FragmentRestaurantsBinding.inflate(layoutInflater)
 
     override fun viewCreated() {
+        val restaurantResponse = RestaurantsFragmentArgs.fromBundle(arguments!!).restaurantResponse
+        viewModel.setRestaurantResponse(restaurantResponse)
         setupRecyclerViewScrollListener(binding.recyclerRestaurants) {
             viewModel.loadPaginatedRestaurants()
         }

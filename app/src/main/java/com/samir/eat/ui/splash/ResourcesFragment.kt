@@ -14,7 +14,8 @@ class ResourcesFragment : BaseFragment<ResourcesViewModel, FragmentResourcesBind
 
     override fun viewCreated() {
         viewModel.finishedLoading.observe(viewLifecycleOwner) {
-            findNavController().navigate(R.id.action_resourcesFragment_to_mainFragment)
+            val action = ResourcesFragmentDirections.actionResourcesFragmentToMainFragment(viewModel.restaurantResponse.value!!)
+            findNavController().navigate(action)
         }
     }
 }

@@ -1,16 +1,19 @@
 package com.samir.eat.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 abstract class BaseResponse {
     val meta = Meta()
     val links = Links()
 }
 
+@Parcelize
 data class RestaurantResponse(
     @SerializedName("data")
     val restaurants: ArrayList<CommonRestaurantProperties>
-) : BaseResponse()
+) : BaseResponse(), Parcelable
 
 data class CuisinesResponse(
     @SerializedName("data")
@@ -27,14 +30,16 @@ data class RegionsResponse(
     val regions: ArrayList<CommonRestaurantProperties>
 ) : BaseResponse()
 
+@Parcelize
 data class CommonRestaurantProperties(
     val id: String? = null,
     val type: PropertyType? = null,
     val attributes: Attributes? = null,
     @Transient
     var selected: Boolean = false
-)
+) : Parcelable
 
+@Parcelize
 data class Attributes(
     val name: String,
     @SerializedName("country_code")
@@ -56,7 +61,7 @@ data class Attributes(
     val ratingsAverage: Double? = null,
     @SerializedName("ratings_count")
     val ratingsCount: Int? = null
-)
+) : Parcelable
 
 data class Meta(
     val limit: Int? = null,
@@ -78,8 +83,10 @@ data class Links(
 enum class PropertyType(val value: String) {
     @SerializedName("restaurant")
     RESTAURANT("restaurant"),
+
     @SerializedName("cuisine")
     CUISINE("cuisine"),
+
     @SerializedName("region")
     REGION("region"),
 }
@@ -87,10 +94,13 @@ enum class PropertyType(val value: String) {
 enum class PriceLevel(val value: Int) {
     @SerializedName("1")
     PRICE_LOW(1),
+
     @SerializedName("2")
     PRICE_MEDIUM(2),
+
     @SerializedName("3")
     PRICE_HIGH(3),
+
     @SerializedName("0")
     PRICE_ALL(0)
 }

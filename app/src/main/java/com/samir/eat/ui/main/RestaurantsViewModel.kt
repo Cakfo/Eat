@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.samir.eat.base.BaseViewModel
 import com.samir.eat.model.CommonRestaurantProperties
+import com.samir.eat.model.RestaurantResponse
 import com.samir.eat.repository.RestaurantsRepository
-import com.samir.eat.networking.data.ResourceManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -28,17 +28,6 @@ class RestaurantsViewModel @Inject constructor(
     private val priceLevelFilter = MutableLiveData<Int?>()
     private val cuisineFilter = MutableLiveData<String?>()
     private val neighborhoodsFilter = MutableLiveData<String?>()
-
-    init {
-        launch {
-//            val regions = repository.getRegions()
-            val region = ResourceManager.regions.find { it.attributes?.name == "Dubai" }
-            val restaurantsResponse = repository.getRestaurants(regionId = region?.id)
-            _restaurants.value = restaurantsResponse.restaurants
-            currentPage = restaurantsResponse.meta.currentPage!!
-            totalPages = restaurantsResponse.meta.totalPages!!
-        }
-    }
 
     fun searchDebounced(searchText: String) {
         searchJob?.cancel()
@@ -87,5 +76,11 @@ class RestaurantsViewModel @Inject constructor(
                     neighborhoodId = neighborhoodsFilter.value
                 ).restaurants
         }
+    }
+
+    fun setRestaurantResponse(restaurantResponse: RestaurantResponse) {
+        _restaurants.value = restaurantResponse.restaurants
+        currentPage = restaurantResponse.meta.currentPage!!
+        totalPages = restaurantResponse.meta.totalPages!!
     }
 }
